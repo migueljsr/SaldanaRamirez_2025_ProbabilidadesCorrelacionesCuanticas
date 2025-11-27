@@ -86,6 +86,14 @@ Script: `008_genesis.py`
 Datos: `data/008_genesis_spectrum.csv`  
 Fenómeno: Obtención del espectro de energías mediante la FFT de la autocorrelación temporal de un ensamble de estados en potencial confinante, y comparación de los picos con los niveles teóricos del oscilador armónico.
 
+009 — Correlaciones tripartitas GHZ (validación de Mermin)
+Script: `009_multipartita_ghz.py`
+Datos: `data/009_datos_correlacion.csv`
+Fenómeno: Simulación ondulatoria de correlaciones tripartitas tipo GHZ mediante resonancia global en un espacio interno compacto. Se obtiene el perfil angular
+E(0,0,θ) y se maximiza el parámetro de Mermin, verificando la violación del límite clásico M ≤ 2 y alcanzando valores cercanos al límite cuántico M ≈ 4.
+
+
+
 ---
 
 Descripción de los scripts
@@ -188,7 +196,28 @@ los picos y los compara con los niveles teóricos del oscilador armónico
 pequeño, validando la capacidad del motor efectivo para reproducir 
 cuantización emergente.
 
+009 — Correlaciones tripartitas GHZ y violación de Mermin
+Script: `009_multipartita_ghz.py`
+Datos: `data/009_datos_correlacion.csv` y `009_reporte_mermin.txt`
 
+Descripción: Implementa la extensión N=3 del mecanismo de resonancia global del
+Modelo Ondulatorio Efectivo para generar correlaciones tripartitas análogas al
+estado GHZ. El estado interno se modela como una onda estacionaria armónica
+Ψ(λ) = cos(3λ), lo que permite interferencia de tercer orden coherente entre
+los tres detectores.
+
+1. **Experimento 1 (Perfil angular):**  
+   Se fija α = β = 0 y se barre θ ∈ [0, 2π], obteniendo una correlación
+   E(0,0,θ) con forma cosenoidal, característica de estados GHZ en mecánica
+   cuántica. Los datos crudos se exportan para comparación y graficado.
+
+2. **Experimento 2 (Test de Mermin):**  
+   Se optimizan seis ángulos (a₁,a₂,b₁,b₂,c₁,c₂) mediante Nelder–Mead para
+   maximizar el parámetro M = |E₁ + E₂ + E₃ − E₄|.  
+   El modelo viola el límite clásico M ≤ 2 y alcanza valores cercanos al
+   límite cuántico M = 4, reproduciendo la firma GHZ sin introducir
+   entrelazamiento explícito en el espacio físico, sino mediante coherencia
+   geométrica en Λ.
 
 
 ---
